@@ -8,7 +8,7 @@ for _ in range(n):
 
 # Please write your code here.
 
-line = [0] * 101
+line = [0] * 200
 start_pos = 10
 
 for i in range(n):
