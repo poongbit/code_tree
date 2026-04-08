@@ -8,14 +8,15 @@ for num, direction in commands:
 
 # Please write your code here.
 
-OFFSET = 500
-MAX_R = 1000
 
-line = [0] * 2 * 1000
-cnt_b = [0] * 2000
-cnt_w = [0] * 2000
+MAX_K = 100000
+#
+line = [0] * (2 * MAX_K + 1)
+cnt_b = [0] * (2 * MAX_K + 1)
+cnt_w = [0] * (2 * MAX_K + 1)
 
-cur = 500
+
+cur = MAX_K
 
 for i in range(n):
     dist, direction = x[i],dir[i]
@@ -25,7 +26,6 @@ for i in range(n):
         while dist > 0:
             line[cur] = 1
             cnt_w[cur] +=1
-
             dist -= 1
 
             if dist:
@@ -33,12 +33,13 @@ for i in range(n):
 
     else:
         # 오른쪽으로 칠함
-        line[cur] = 2
-        cnt_b[cur]  +=1
-        dist -= 1
+        while dist > 0:
+            line[cur] = 2
+            cnt_b[cur] +=1
+            dist -=1
 
-        if dist:
-            cur +=1 
+            if dist:
+                cur +=1
 
 g,w,b = 0,0,0
 
