@@ -5,13 +5,12 @@ N, B = map(int, input().split())
 digits = []
 
 while True:
-
-    if N < 4:
+    if N < B:
         digits.append(N)
         break
 
-    digits.append(N%4)
-    N = N // 4
+    digits.append(N%B)
+    N = N // B
 
 
 for number in digits[::-1]:
