@@ -22,11 +22,10 @@ for i in range(n):
 
     elif direction == 'L':
 
-        for k in range(start_pos,start_pos-move,-1):
+        for k in range(start_pos-1,start_pos-move-1,-1):
             line[k] +=1
 
         start_pos -= move
-
 
 
 count = 0
