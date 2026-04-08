@@ -8,24 +8,43 @@ for _ in range(n):
 
 # Please write your code here.
 
-line = [0] * 200
-start_pos = 10
+OFFSET = 1000
+MAX_R = 2000
 
-for i in range(n):
-    move,direction = x[i],dir[i]
+# 현재 위치
+cur = 0
+segments = []
 
-    if direction == 'R':
-        for j in range(start_pos,start_pos + move):
-            line[j] +=1
+for j in range(n):
+    dist, direction = x[j],dir[j]
 
-        start_pos += move
+    if direction == 'L':
+        # 왼쪽으로 이동할 경우 : cur - distance, cur까지 경로 이동
+        section_left = cur-dist
+        section_right = cur
+        cur -= dist
 
-    elif direction == 'L':
+    else:
+        section_left = cur
+        section_right = cur + dist
+        cur += dist
 
-        for k in range(start_pos-1,start_pos-move-1,-1):
-            line[k] +=1
+    segments.append([section_left,section_right])
 
-        start_pos -= move
+
+line = [0] * (MAX_R + 1)
+
+for x1,x2 in segments:
+
+    # offset 더해줌
+    x1,x2 = x1 + OFFSET, x2 + OFFSET
+
+    # 구간을 칠해준다
+    # 구간 단위로 진행하는 문제이므로,
+    # x2에 등호가 들어가지 않음을 유의한다.
+
+    for i in range(x1,x2):
+        line[i] +=1
 
 
 count = 0
