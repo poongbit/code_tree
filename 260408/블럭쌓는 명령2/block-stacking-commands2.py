@@ -3,7 +3,7 @@ commands = [tuple(map(int, input().split())) for _ in range(k)]
 
 # Please write your code here.
 
-area = [0] * n
+area = [0] * (n+1)
 
 for start,end in commands:
     for i in range(start,end+1):
