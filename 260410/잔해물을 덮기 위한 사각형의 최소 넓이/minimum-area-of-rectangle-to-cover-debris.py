@@ -22,14 +22,13 @@ for row in range(x1[1] + offset, x2[1] + offset):
 
 # 아직 숫자 1로 남아있는 곳들 중 최대 최소 x,y를 전부 계산
 
-min_row,max_row,min_column,max_c
-$0olumn = 999999,0,999999,0
+min_row,max_row,min_column,max_column = 999999,0,999999,0
 first_rec_exist = False
 
 for row in range(len(area)):
     for column in range(len(area[0])):
         if area[row][column] == 1:
-            first_rect_exist = True
+            first_rec_exist = True
 
             min_row = min(min_row,row)
             max_row = max(max_row,row)
@@ -42,6 +41,8 @@ for row in range(len(area)):
 if not first_rec_exist:
     size =0
 
+
 else:
     size = (max_row - min_row + 1) * (max_column - min_column + 1)
-    print(size)
+
+print(size)
