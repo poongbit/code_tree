@@ -22,7 +22,8 @@ for row in range(x1[1] + offset, x2[1] + offset):
 
 # 아직 숫자 1로 남아있는 곳들 중 최대 최소 x,y를 전부 계산
 
-min_row,max_row,min_column,max_column = 999999,0,999999,0
+min_row,max_row,min_column,max_c
+$0olumn = 999999,0,999999,0
 first_rec_exist = False
 
 for row in range(len(area)):
@@ -38,7 +39,7 @@ for row in range(len(area)):
 
 # 첫 번째 직사각형이 남아있지 않다면 넓이는 0
 
-if not first_rect_exist:
+if not first_rec_exist:
     size =0
 
 else:
