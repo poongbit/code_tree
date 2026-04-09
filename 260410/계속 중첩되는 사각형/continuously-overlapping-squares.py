@@ -34,5 +34,14 @@ if max_color % 2 !=0:
             if area[row][column] == max_color:
                 count +=1
 
+else:
+    max_color -=1
+    # 파란색임
+    for row in range(len(area)):
+        for column in range(len(area[0])):
+            if area[row][column] == max_color:
+                count +=1
+
+
 
 print(count)
