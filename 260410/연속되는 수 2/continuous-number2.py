@@ -11,6 +11,9 @@ def check_num(arr):
     cnt_arr = []
     cnt = 0
 
+    if n == 1:
+        cnt_arr.append(1)
+
     for i in range(n):
         if i == 0:
             cnt += 1
