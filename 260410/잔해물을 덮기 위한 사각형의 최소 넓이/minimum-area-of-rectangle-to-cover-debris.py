@@ -9,31 +9,38 @@ offset = 1000
 area = [[0] * 2001 for _ in range(2001)]
 
 
-# 첫번째 삼각형 덮기
+# 사각형 1,2 기록하기 
 
-for row in range(x1[0] + offset, x2[0]+offset):
-    for column in range(y1[0]+offset, y2[0]+offset):
+for row in range(x1[0] + offset, x2[0] + offset):
+    for column in range(y1[0] + offset, y2[0] + offset):
         area[row][column] = 1
 
-count = 0
+for row in range(x1[1] + offset, x2[1] + offset):
+    for column in range(y1[1] + offset, y2[1] + offset):
+        area[row][column] = 2
+
+
+# 아직 숫자 1로 남아있는 곳들 중 최대 최소 x,y를 전부 계산
+
+min_row,max_row,min_column,max_column = 999999,0,999999,0
+first_rec_exist = False
 
 for row in range(len(area)):
     for column in range(len(area[0])):
         if area[row][column] == 1:
-            count +=1
+            first_rect_exist = True
 
-# 두 번째 삼각형 덮기
+            min_row = min(min_row,row)
+            max_row = max(max_row,row)
 
-mixed = 0
+            min_column = min(min_column,column)
+            max_column = max(max_column,column)
 
-for row in range(x1[1]+offset ,x2[1]+offset):
-    for column in range(y1[1] + offset, y2[1] + offset):
-        if area[row][column] == 1:
-            mixed +=1
-        
+# 첫 번째 직사각형이 남아있지 않다면 넓이는 0
 
-if count == mixed:
-    print(0)
+if not first_rect_exist:
+    size =0
 
 else:
-    print(count)
+    size = (max_row - min_row + 1) * (max_column - min_column + 1)
+    print(size)
