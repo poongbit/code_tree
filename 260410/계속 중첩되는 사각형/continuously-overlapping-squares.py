@@ -21,16 +21,14 @@ for i in range(n):
 
     for row in range(a,c):
         for column in range(b,d):
-            area[row][column] = i
+            area[row][column] = 1 if i % 2 == 0 else 2
 
 count = 0
 
-for i in range(n):
-    if i % 2 != 0:
-        for row in range(len(area)):
-            for column in range(len(area[0])):
-                if area[row][column] == i:
-                    count +=1
+for row in range(len(area)):
+    for column in range(len(area[0])):
+        if area[row][column] == 2:
+            count +=1
 
 
 print(count)
