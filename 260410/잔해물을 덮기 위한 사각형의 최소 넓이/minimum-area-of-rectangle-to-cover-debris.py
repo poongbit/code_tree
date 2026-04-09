@@ -15,21 +15,6 @@ for row in range(x1[0] + offset, x2[0]+offset):
     for column in range(y1[0]+offset, y2[0]+offset):
         area[row][column] = 1
 
-# 두 번째 삼각형 덮기
-
-mixed =0
-
-for row in range(x1[1]+offset ,x2[1]+offset):
-    for column in range(y1[1] + offset, y2[1] + offset):
-        if area[row][column] == 1:
-            mixed +=1
-        
-        area[row][column] = 2
-
-
-
-
-
 count = 0
 
 for row in range(len(area)):
@@ -37,4 +22,18 @@ for row in range(len(area)):
         if area[row][column] == 1:
             count +=1
 
-print(count + mixed)
+# 두 번째 삼각형 덮기
+
+mixed = 0
+
+for row in range(x1[1]+offset ,x2[1]+offset):
+    for column in range(y1[1] + offset, y2[1] + offset):
+        if area[row][column] == 1:
+            mixed +=1
+        
+
+if count == mixed:
+    print(0)
+
+else:
+    print(count)
