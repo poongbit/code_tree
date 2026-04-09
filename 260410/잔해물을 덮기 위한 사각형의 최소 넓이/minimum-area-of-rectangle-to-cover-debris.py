@@ -6,43 +6,41 @@ x1[1], y1[1], x2[1], y2[1] = map(int, input().split())
 
 offset = 1000
 
-area = [[0] * 2001 for _ in range(2001)]
+MAX_K =  2000
+
+# 넓이 선언
+area = [[3] * (MAX_K+1) for _ in range(MAX_K +1)]
+
+# 직사각형 1,2를 0,1로 채우기
+for i in range(2):
+    a,b,c,d = x1[i] + offset, y1[i] + offset, x2[i] + offset, y2[i] + offset
+
+    for row in range(a,c):
+        for column in range(b,d):
+            area[row][column] = i
 
 
-# 사각형 1,2 기록하기 
+# 전부다 겹쳐서 1 직사각형이 없는 경우
+is_rec = False
 
-for row in range(x1[0] + offset, x2[0] + offset):
-    for column in range(y1[0] + offset, y2[0] + offset):
-        area[row][column] = 1
+min_row,max_row,min_col,max_col = MAX_K,0,MAX_K,0
 
-for row in range(x1[1] + offset, x2[1] + offset):
-    for column in range(y1[1] + offset, y2[1] + offset):
-        area[row][column] = 2
-
-
-# 아직 숫자 1로 남아있는 곳들 중 최대 최소 x,y를 전부 계산
-
-min_row,max_row,min_column,max_column = 999999,0,999999,0
-first_rec_exist = False
 
 for row in range(len(area)):
     for column in range(len(area[0])):
-        if area[row][column] == 1:
-            first_rec_exist = True
-
+        if area[row][column] == 0:
+            # 겹치는 부분이 있음
+            is_rec = True
             min_row = min(min_row,row)
             max_row = max(max_row,row)
+            min_col = min(min_col,column)
+            max_col = max(max_col,column)
 
-            min_column = min(min_column,column)
-            max_column = max(max_column,column)
 
-# 첫 번째 직사각형이 남아있지 않다면 넓이는 0
-
-if not first_rec_exist:
-    size =0
-
+if not is_rec:
+    size = 0
 
 else:
-    size = (max_row - min_row + 1) * (max_column - min_column + 1)
+    size = (max_row-min_row + 1) * (max_col - min_col + 1)
 
 print(size)
