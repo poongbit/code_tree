@@ -4,7 +4,7 @@ arr = list(map(int, input().split()))
 # Please write your code here.
 
 cnt = 0
-ans =0
+ans = 0
 
 for i in range(n):
     if i>0 and arr[i-1]>t and (arr[i]>arr[i-1]):
@@ -14,4 +14,8 @@ for i in range(n):
 
     ans = max(ans,cnt)
 
-print(ans)
+if ans < 3:
+    print(0)
+
+else:
+    print(ans)
