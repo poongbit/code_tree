@@ -25,6 +25,9 @@ for i in range(N):
         result.append(yang)
         yang = 1
 
+    result.append(yang)
+    result.append(umm)
+
 
 print(max(result))
 
