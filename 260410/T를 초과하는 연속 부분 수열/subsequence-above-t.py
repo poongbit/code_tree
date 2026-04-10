@@ -10,12 +10,9 @@ for i in range(n):
     if i>0 and arr[i-1]>t and (arr[i]>arr[i-1]):
         cnt +=1
     else:
-        cnt = 1
+        if arr[i] >t:
+            cnt =1
 
     ans = max(ans,cnt)
 
-if ans < 3:
-    print(0)
-
-else:
-    print(ans)
+print(ans)
