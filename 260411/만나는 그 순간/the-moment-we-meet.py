@@ -35,18 +35,18 @@ for i in range(len(d)):
         for _ in range(dist):
             # 왼쪽으로 이동
             cur -=1
-
-            move_a[time] = cur
-            # 시간이 흐름
             time +=1
+            move_a[time] = cur
+            
 
     else:
         for _ in range(dist):
             cur += 1
+            time +=1
 
             move_a[time] = cur
 
-            time +=1
+            
     
 
 cur = 0
@@ -60,24 +60,21 @@ for i in range(len(d2)):
         for _ in range(dist):
             # 왼쪽으로 이동
             cur -=1
-
-            move_b[time] = cur
-            # 시간이 흐름
             time +=1
+            move_b[time] = cur
 
     else:
         for _ in range(dist):
             cur += 1
-
+            time +=1
             move_b[time] = cur
 
-            time +=1
     
 
-for i in range(len(move_a)):
+for i in range(1,len(move_a)):
     if move_a[i] == move_b[i]:
         if move_a[i] !=0:
-            print(i+1)
+            print(i)
             break
         
         else:
