@@ -2,20 +2,24 @@ n = int(input())
 arr = [int(input()) for _ in range(n)]
 
 # Please write your code here.
+#연속해서 동일한 숫자가 나오는 횟수를 구한다
+# 그 중 최댓값을 갱신한다
 
-cnt = 1
-connected = []
+ans,cnt = 0,0
 
 for i in range(n):
-    if i == 0 or arr[i] != arr[i-1]:
-        connected.append(cnt)
-        cnt = 1
+    # 연속해서 나올 경우
 
-    else:
+    if i>= 1 and arr[i] == arr[i-1]:
         cnt +=1
 
-print(max(connected))
+    else:
+        # 다시 초기화
+        cnt = 1
 
+    ans = max(ans,cnt)
+
+print(ans)
     
     
 
