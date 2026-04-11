@@ -15,6 +15,7 @@ for member in student:
     if punishment[member] == K:
         need_punish = True
         print(member)
+        break
 
 
 if not need_punish:
