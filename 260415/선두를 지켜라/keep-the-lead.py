@@ -20,8 +20,8 @@ for _ in range(m):
 
 MAX_T = 100000
 
-a_time = [0] * (MAX_T + 1)
-b_time = [0] * (MAX_T + 1)
+a_time = [0] * (MAX_T + 5)
+b_time = [0] * (MAX_T + 5)
 
 # A가 매 초 서 있는 위치 기록
 time_a = 1
