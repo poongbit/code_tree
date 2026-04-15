@@ -18,7 +18,7 @@ for _ in range(m):
 
 # Please write your code here.
 
-MAX_T = 100000
+MAX_T = 1000000
 
 a_time = [0] * (MAX_T + 5)
 b_time = [0] * (MAX_T + 5)
@@ -51,8 +51,7 @@ for i in range(1,time_a):
         # 답을 갱신한다
         if leader == 2:
             ans +=1
-
-        
+            
         leader = 1
 
     elif a_time[i] < b_time[i]:
