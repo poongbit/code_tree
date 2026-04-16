@@ -67,7 +67,7 @@ for i in range(time_a,max_time +1):
 
 
 for j in range(time_b,max_time+1):
-    b_time[i] = b_time[time_b-1] #마지막 위치 그대로 있기
+    b_time[j] = b_time[time_b-1] #마지막 위치 그대로 있기
 
 
 for i in range(1,max_time):
