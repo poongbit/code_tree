@@ -58,7 +58,7 @@ for i in range(m):
 
 count = 0
 
-max_time = max(time_a,time_b)
+max_time = max(time_a-1,time_b-1)
 
 # A 루프 끝난 후
 
