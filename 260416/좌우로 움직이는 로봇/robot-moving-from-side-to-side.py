@@ -39,6 +39,7 @@ for i in range(n):
             a_time[time_a] = a_time[time_a-1] -1
             time_a +=1
 
+        
 time_b = 1
 
 for i in range(m):
@@ -59,7 +60,17 @@ count = 0
 
 max_time = max(time_a,time_b)
 
-for i in range(1,max_time+1):
+# A 루프 끝난 후
+
+for i in range(time_a,max_time +1):
+    a_time[i] = a_time[time_a -1] # 마지막 위치 그대로 있기
+
+
+for j in range(time_b,max_time+1):
+    b_time[i] = b_time[time_b-1] #마지막 위치 그대로 있기
+
+
+for i in range(1,max_time):
     if a_time[i-1] != b_time[i-1] and a_time[i] == b_time[i]:
         count +=1
 
