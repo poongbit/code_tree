@@ -11,7 +11,7 @@ for i in range(n):
 
     # 동,서,남,북
     dx = [1,-1,0,0]
-    dy = [0,0,1,1]
+    dy = [0,0,-1,1]
 
     if direction == 'E':
         x += dx[0] * distance
