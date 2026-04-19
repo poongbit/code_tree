@@ -29,7 +29,7 @@ for r,c in points:
                 count +=1
     
 
-    if count >=3:
+    if count ==3:
         print(1)
 
     else:
