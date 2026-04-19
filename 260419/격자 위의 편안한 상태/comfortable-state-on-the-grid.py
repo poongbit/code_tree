@@ -3,7 +3,7 @@ points = [tuple(map(int, input().split())) for _ in range(m)]
 
 # Please write your code here.
 
-color = [[0]*m for _ in range(n)]
+color = [[0]*(m+1) for _ in range(n+1)]
 
 # 위,아래,왼,오
 d_row = [-1,1,0,0]
