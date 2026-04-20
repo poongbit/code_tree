@@ -16,19 +16,13 @@ for r1 in range(1,R):
             # 지금 색 상황에서 다시 새롭게 탐색해서,
             # 다른 색이 나오면 카운트
 
-            count = 1
-
-            for r2 in range(r1+1,R):
-                for c2 in range(c1+1,C):
+            for r2 in range(r1+1,R-1):
+                for c2 in range(c1+1,C-1):
 
                     new_color = grid[r2][c2]
 
                     if color != new_color:
-                        count = 2
-
-                if count == 2:
-                    result +=1
-
+                        result +=1
 
                 
 
