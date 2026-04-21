@@ -39,7 +39,7 @@ for i in range(n):
 
 
 
-if not_carry:
+if not not_carry:
     print(-1)
 
 else:
