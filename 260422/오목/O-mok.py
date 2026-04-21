@@ -15,7 +15,7 @@ def check_dir(row,col,index,color):
     while count < 4:
         n_row,n_col = row + d_row[index], col + d_col[index]
 
-        if board[n_row][n_col] == color:
+        if 0<=n_row<19 and 0<=n_col<19 and board[n_row][n_col] == color:
             count +=1
 
             row,col = n_row,n_col
