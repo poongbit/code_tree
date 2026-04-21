@@ -1,3 +1,6 @@
+import sys
+INT_MIN = -sys.maxsize
+
 n = int(input())
 arr = [int(input()) for _ in range(n)]
 
@@ -6,10 +9,10 @@ arr = [int(input()) for _ in range(n)]
 
 # 자릿수 반환 함수
 def digit_return(num,pos):
-    return (num // 10 *pos) % 10
+    return (num // 10 ** pos) % 10
 
 
-result = 0
+result = INT_MIN
 
 # 서로 다른 3개의 수를 고름
 
