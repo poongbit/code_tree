@@ -33,17 +33,18 @@ for i in range(n):
                     break
 
             if not_carry:
+                found = True
                 num_sum = num1 + num2 + num3
 
                 result = max(result,num_sum)
 
 
 
-if not not_carry:
-    print(-1)
+if found:
+    print(result)
 
 else:
-    print(result)                 
+    print(-1)                 
 
 
 
