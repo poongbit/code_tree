@@ -23,8 +23,10 @@ for i in range(1,n-1):
     # 거리 초기화
     distance = 0
 
-    for j in range(n-1):
-        distance += abs(x[j+1]-x[j]) + abs(y[j+1]-y[j])
+    for j in range(1,n):
+        if j == i:
+            continue
+        distance += abs(x[j-1]-x[j]) + abs(y[j-1]-y[j])
     
     min_distance = min(min_distance, distance)
 
