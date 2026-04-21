@@ -38,7 +38,12 @@ for i in range(n):
                 result = max(result,num_sum)
 
 
-print(result)                 
+
+if not_carry:
+    print(-1)
+
+else:
+    print(result)                 
 
 
 
