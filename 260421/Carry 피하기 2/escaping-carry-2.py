@@ -14,6 +14,10 @@ def digit_return(num,pos):
 
 result = INT_MIN
 
+# 하나의 조합이라도 있으면 found는 True로 바뀔 예정
+found = False
+
+
 # 서로 다른 3개의 수를 고름
 
 for i in range(n):
