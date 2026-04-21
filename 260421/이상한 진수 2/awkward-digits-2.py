@@ -6,7 +6,7 @@ a = list(map(int,input()))
 
 # 2-digits로 변환하기
 
-result = INT_MIN
+result = 0
 
 for i in range(1,len(a)):
     origin = a[i]
