@@ -5,7 +5,7 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 
 max_cnt = 0
 
-for row in range(n):
+for row in range(n-2):
     for col in range(n-2):
 
         for n_row in range(row+1,n):
