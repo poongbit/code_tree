@@ -20,7 +20,7 @@ for i in range(N):
 result = 0
 
 
-for i in range(1,MAX_K - K + 2):
+for i in range(0,MAX_K - K + 1):
     max_candy = 0
     for c in range(i-K, i+K+1):
         max_candy += locate[c]
