@@ -21,10 +21,12 @@ result = 0
 
 
 for i in range(0,MAX_K - K + 1):
-    max_candy = 0
-    for c in range(i-K, i+K+1):
-        max_candy += locate[c]
+    for c in range(i,MAX_K - K + 1):
+        max_candy = 0
+        for k in range(c-K,c+K+1):
+            max_candy += locate[k]
 
-    result = max(result,max_candy)
+        result = max(result,max_candy)
+
 
 print(result)
