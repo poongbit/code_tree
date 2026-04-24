@@ -23,7 +23,9 @@ result = 0
 for i in range(0,MAX_K - K + 1):
     max_candy = 0
     for c in range(i-K,i+K+1):
-        max_candy += locate[c]
+        # 주어진 위치가 넘어가서는 안된다
+        if c >=0 and c <= MAX_K:
+            max_candy += locate[c]
 
     result = max(result,max_candy)
 
