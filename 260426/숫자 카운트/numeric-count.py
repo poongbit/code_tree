@@ -1,58 +1,62 @@
+# 변수 선언 및 입력
 n = int(input())
-a, b, c = [], [], []
-
-for _ in range(n):
-    num, cnt1, cnt2 = map(int, input().split())
-    a.append(num)
-    b.append(cnt1)
-    c.append(cnt2)
+arr = [
+	tuple(map(int, input().split()))
+	for _ in range(n)
+]
 
 # Please write your code here.
 
-def check_candidate(a,b,c,check_num):
-    cnt1 = 0
-    cnt2 = 0
-
-    # 숫자를 꺼냄
-    num = str(a)
-
-    num_list = list(map(int,str(num)))
-
-    for i in range(len(num_list)):
-        if int(check_num[i]) == num_list[i]:
-            cnt1 +=1
-
-        elif int(check_num[i]) in num_list:
-            cnt2 +=1
-
-
-    if cnt1 == b and cnt2 == c:
-        return 1
-        
-    else:
-        return 0
-
-
-# 결과값 저장
-answer = 0
+# 모든 숫자를 다 만들어본다. (백의 자리수가 i, 십의 자리수가 j, 일의 자리수가 k)
+cnt = 0 
 
 for i in range(1,10):
     for j in range(1,10):
         for k in range(1,10):
-            # 세 숫자는 서로 다름
-            if i != j and j !=k and i !=k:
-                check_num = str(i) + str(j) + str(k)
-                result = 0
-                
-                # n개 만큼 들어있는 힌트를 다 체크함
-                for m in range(n):
-                    result += check_candidate(a[m],b[m],c[m],check_num)
+            # 같은 수가 있는 지 확인한다.
+            if i == j or j == k or k == i:
+                continue
 
-                # 힌트의 개수 만큼 맞아 떨어졌다면 경우의 수 추가
-                if result == n:
-                    answer +=1
+            # 해당 숫자가 정답일 때, 모든 입력에 대해 올바른 답이 나왔는 지 검증한다.
+            succeeded = True
+
+            for a, num_cnt1, num_cnt2 in arr:
+                # x : a[q]의 백의 자릿수, y : 십의 자릿수, z : 일의 자릿수
+                x = a // 100
+                y = a // 10 % 10
+                z = a % 10
+
+                # cnt1: 1번 카운트, cnt2 : 2번 카운트
+                cnt1 = 0
+                cnt2 = 0
+
+                if x == i:
+                    cnt1 +=1
+
+                if y == j:
+                    cnt1 +=1
+
+                if z == k:
+                    cnt1 +=1
+
+                if x ==j or x == k:
+                    cnt2 +=1
+
+                if y == i or y == k:
+                    cnt2 +=1
+
+                if z == i or z == j:
+                    cnt2 +=1
+
+                # 만약 카운트 수가 다르다면, 해당 숫자는 정답이 될 수 없다.
+
+                if cnt1 != num_cnt1 or cnt2 != num_cnt2:
+                    succeeded = False
+                    break
+
+            if succeeded:
+                cnt +=1
 
 
-print(answer)
+print(cnt)
 
-                
