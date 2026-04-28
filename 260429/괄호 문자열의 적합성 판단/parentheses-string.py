@@ -12,8 +12,10 @@ for i in range(len(str)):
         
 
     else:
-        if answer.pop() == '':
-            print('No')
+        if len(answer) != 0:
+            answer.pop()
+        
+        else:
             flag = False
             break
 
