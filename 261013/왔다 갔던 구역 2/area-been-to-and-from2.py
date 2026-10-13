@@ -1,29 +1,33 @@
 n = int(input())
+
 moves = []
-for _ in range(n):
-    xi, di = input().split()
-    moves.append((int(xi),di))
 
-# Please write your code here.
+for i in range(n):
+    data = input().split()
 
-# 음수 좌표 -> offset으로 평행이동해서 배열 인덱스로 사용
+    distance = data[0]
+    dir = data[1]
+    moves.append((int(distance),dir))
+
+
 OFFSET = 1000
-line = [0] * (2*OFFSET +1)
+line = [0] * (2*OFFSET)
 
-cur = OFFSET # 현재 위치 (0을 OFFSET으로 매칭)
+# 0을 OFFSET으로 맵핑
+cur = OFFSET
 
-for dist,d in moves:
-    if d == 'R':
-        # 구간 [cur,cur+dist) 칠하기 
-        for i in range(cur,cur+dist):
-            line[i] +=1
+for dist, dir in moves:
+    if dir == 'R':
+        for colored in range(cur,cur+dist):
+            line[colored] +=1
+
         cur += dist
 
     else:
-        # 구간 [cur-dist,cur) 만큼 칠하기
-        for i in range(cur-dist,cur):
-            line[i] +=1
+        for colored in range(cur-dist,cur):
+            line[colored] +=1
         cur -= dist
+
 
 result = 0
 
@@ -32,6 +36,5 @@ for i in range(len(line)):
         result +=1
 
 print(result)
-
 
 
